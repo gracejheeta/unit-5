@@ -18,6 +18,10 @@ color purple = #6900FF;
 color magenta = #D400FF;
 color pink = #FFC4DE;
 
+// Font
+PFont lemon;
+
+// Mode variables
 int mode;
 final int INTRO = 0;
 final int GAME = 1;
@@ -27,6 +31,7 @@ final int GAMEOVER = 3;
 void setup() {
   size(800, 800);
   textAlign(CENTER, CENTER);
+  lemon = createFont("Lemon-Regular.ttf", 100);
   mode = INTRO;
 }
 
