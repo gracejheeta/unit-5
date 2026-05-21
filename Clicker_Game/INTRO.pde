@@ -1,22 +1,24 @@
 void intro() {
-  background(white);
+  background(orange);
   strokeWeight(5);
  
   textFont(lemon);
-  textSize(100);
+  textSize(90);
   text("CLICKER GAME", 400, 200);
   
   // Start button
   tactileRect(150, 450, 200, 100, black, yellow, lightBlue);
   fill(black);
-  textSize(40);
+  textSize(30);
   text("START", 250, 500);
   
   // Options button
   tactileRect(450, 450, 200, 100, black, yellow, lightBlue);
   fill(black);
-  textSize(40);
   text("OPTIONS", 550, 500);
+  
+  score = 0;
+  lives = 3;
 }
 
 void introClicks() {
