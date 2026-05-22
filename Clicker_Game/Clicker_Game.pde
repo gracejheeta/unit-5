@@ -1,13 +1,13 @@
+// Grace Jheeta
+// Block 1-2
+// Thursday May 14, 2026
+
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
-
-// Grace Jheeta
-// Block 1-2
-// Thursday May 14, 2026
 
 // Color variables
 color black = #000000;
@@ -24,6 +24,7 @@ color darkBlue = #0017FC;
 color purple = #6900FF;
 color magenta = #D400FF;
 color pink = #FFC4DE;
+color cream = #F5EED2;
 
 // Font variables
 PFont lemon;
@@ -34,6 +35,7 @@ final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
+final int OPTIONS = 4;
 
 // target variables
 float x, y, d;
@@ -44,21 +46,13 @@ int score, lives, highscore;
 Minim minim;
 AudioPlayer success;
 
-
 void setup() {
   size(800, 800, P2D);
   textAlign(CENTER, CENTER);
   lemon = createFont("Lemon-Regular.ttf", 100);
   mode = INTRO;
   
-  // target initialization
-  x = width/2;
-  y = height/2;
-  d = 100;
-  vx = random(-5, 5);
-  vy = random(-5, 5);
-  score = 0;
-  lives = 3;
+  reset();
   highscore = 0;
   
   // minim
@@ -76,6 +70,8 @@ void draw() {
     pause();
   } else if (mode == GAMEOVER) {
     gameover();
+  } else if (mode == OPTIONS) {
+    options(); 
   } else {
     println("Error: Mode = " + mode);
   }

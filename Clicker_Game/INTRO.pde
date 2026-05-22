@@ -1,4 +1,5 @@
 void intro() {
+  reset();
   background(orange);
   strokeWeight(5);
  
@@ -22,8 +23,9 @@ void intro() {
 }
 
 void introClicks() {
-  // if mouse is inside start button
   if (mouseX > 150 && mouseX < 350 && mouseY > 450 && mouseY < 550) {
     mode = GAME;
+  } else if (mouseX > 450 && mouseX < 650 && mouseY > 450 && mouseY < 550) {
+    mode = OPTIONS; 
   }
 }
