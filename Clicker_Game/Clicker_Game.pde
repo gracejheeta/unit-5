@@ -42,6 +42,7 @@ int score, lives, highscore;
 
 // sound variables
 Minim minim;
+AudioPlayer success;
 
 
 void setup() {
@@ -62,6 +63,7 @@ void setup() {
   
   // minim
   minim = new Minim(this);
+  success = minim.loadFile("SUCCESS.wav");
   
 }
 

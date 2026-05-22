@@ -29,6 +29,8 @@ void gameClicks() {
   //mode = GAMEOVER;
   if ( dist(mouseX, mouseY, x, y) < d/2) {
      score ++;
+     success.rewind();
+     success.play();
   } else {
     lives --;
     if (lives == 0) mode = GAMEOVER; 
