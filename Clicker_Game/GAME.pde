@@ -1,5 +1,6 @@
 void game() {
   background(lightGreen);
+  music.play();
 
   //pause button
   tactileCircle(750, 50, 50, black, red, yellow);
@@ -39,8 +40,11 @@ void gameClicks() {
     vy *= 1.05;
   } else if ( dist(mouseX, mouseY, 750, 50) < 25) {
     mode = PAUSE;
+    music.pause();
   } else {
     lives --;
+    failure.rewind();
+    failure.play();
     if (lives == 0) mode = GAMEOVER;
   }
 }

@@ -34,4 +34,17 @@ void reset() {
   //game values
   score = 0;
   lives = 3;
+  
+  // sound
+  music.rewind();
+}
+
+void target() {
+   
+}
+
+void controlSlider() {
+  if (mouseX >= 50 && mouseX <= 150 && mouseY >= 550 && mouseY <= 750) {
+    sliderY = mouseY; 
+  }
 }

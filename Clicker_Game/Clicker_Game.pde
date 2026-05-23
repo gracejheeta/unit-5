@@ -42,23 +42,39 @@ float x, y, d;
 float vx, vy; //target velocity
 int score, lives, highscore;
 
+// slider variables
+float sliderY = 650;
+float targetSize = map(sliderY, 550, 750, 50, 100); 
+
 // sound variables
 Minim minim;
 AudioPlayer success;
+AudioPlayer failure;
+AudioPlayer music;
+
+// image variables
+PImage orca;
+PImage rabbit;
 
 void setup() {
   size(800, 800, P2D);
   textAlign(CENTER, CENTER);
-  lemon = createFont("Lemon-Regular.ttf", 100);
-  mode = INTRO;
+  strokeWeight(5);
   
-  reset();
-  highscore = 0;
+  lemon = createFont("Lemon-Regular.ttf", 100);
+  orca = loadImage("orca.png");
+  rabbit = loadImage("rabbit.png");
+  
+  mode = INTRO;
   
   // minim
   minim = new Minim(this);
   success = minim.loadFile("SUCCESS.wav");
+  failure = minim.loadFile("FAILURE.wav");
+  music = minim.loadFile("MUSIC.mp3");
   
+  reset();
+  highscore = 0;
 }
 
 void draw() {

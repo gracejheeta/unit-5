@@ -1,7 +1,6 @@
 void intro() {
   reset();
   background(orange);
-  strokeWeight(5);
  
   textFont(lemon);
   textSize(90);

@@ -1,5 +1,6 @@
 void gameover() {
   background(magenta);
+  music.pause();
   
   // text
   fill(purple);
