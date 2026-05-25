@@ -9,19 +9,17 @@ void game() {
   line(755, 40, 755, 60);
 
   // display target
-  stroke(black);
-  fill(darkBlue);
-  circle(x, y, d);
+  target(x, y);
 
   // moving
   x += vx;
   y+= vy;
 
   // bouncing
-  if (x <= d/2 || x >= width - d/2) {
+  if (x <= targetSize/2 || x >= width - targetSize/2) {
     vx *= -1;
   }
-  if (y <= d/2 || y >= height - d/2) {
+  if (y <= targetSize/2 || y >= height - targetSize/2) {
     vy *= -1;
   }
 
@@ -32,7 +30,7 @@ void game() {
 }
 
 void gameClicks() {
-  if ( dist(mouseX, mouseY, x, y) < d/2) {
+  if ( dist(mouseX, mouseY, x, y) < targetSize/2) {
     score ++;
     success.rewind();
     success.play();

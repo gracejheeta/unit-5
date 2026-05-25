@@ -27,7 +27,6 @@ void reset() {
   //target values
   x = width/2;
   y = height/2;
-  d = 100;
   vx = random(-5, 5);
   vy = random(-5, 5);
   
@@ -39,8 +38,17 @@ void reset() {
   music.rewind();
 }
 
-void target() {
-   
+void target(float x, float y) {
+  stroke(black);
+  fill(white);
+  circle(x, y, targetSize);
+  if (orcaOn) {
+    rabbitOn = false;
+    image(orca, x - targetSize/2, y - targetSize/2, targetSize - 5, targetSize - 5); 
+  } else if (rabbitOn) {
+    orcaOn = false;
+    image(rabbit, x - targetSize/3, y - targetSize/3, targetSize * 2/3 - 5, targetSize * 2/3 - 5); 
+  }
 }
 
 void controlSlider() {

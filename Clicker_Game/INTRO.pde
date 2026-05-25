@@ -1,6 +1,6 @@
 void intro() {
-  reset();
   background(orange);
+  reset();
  
   textFont(lemon);
   textSize(90);
@@ -16,9 +16,6 @@ void intro() {
   tactileRect(450, 450, 200, 100, black, yellow, lightBlue);
   fill(black);
   text("OPTIONS", 550, 500);
-  
-  score = 0;
-  lives = 3;
 }
 
 void introClicks() {

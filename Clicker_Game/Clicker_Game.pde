@@ -12,7 +12,6 @@ import ddf.minim.ugens.*;
 // Color variables
 color black = #000000;
 color white = #FFFFFF;
-
 color red = #FF0900;
 color orange = #FF9900;
 color yellow = #FFF300;
@@ -38,23 +37,27 @@ final int GAMEOVER = 3;
 final int OPTIONS = 4;
 
 // target variables
-float x, y, d;
+float x, y, targetSize;
 float vx, vy; //target velocity
+
+// game variables
 int score, lives, highscore;
 
-// slider variables
+// slider variable
 float sliderY = 650;
-float targetSize = map(sliderY, 550, 750, 50, 100); 
 
 // sound variables
 Minim minim;
 AudioPlayer success;
 AudioPlayer failure;
 AudioPlayer music;
+AudioPlayer whoosh;
 
 // image variables
 PImage orca;
 PImage rabbit;
+boolean orcaOn = false;
+boolean rabbitOn = false;
 
 void setup() {
   size(800, 800, P2D);
@@ -65,15 +68,17 @@ void setup() {
   orca = loadImage("orca.png");
   rabbit = loadImage("rabbit.png");
   
-  mode = INTRO;
-  
   // minim
   minim = new Minim(this);
   success = minim.loadFile("SUCCESS.wav");
   failure = minim.loadFile("FAILURE.wav");
   music = minim.loadFile("MUSIC.mp3");
+  whoosh = minim.loadFile("WHOOSH.wav");
+  
+  mode = INTRO;
   
   reset();
+  targetSize = 100; // if start is clicked before options
   highscore = 0;
 }
 

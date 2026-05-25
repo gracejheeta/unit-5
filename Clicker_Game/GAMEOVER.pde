@@ -2,14 +2,14 @@ void gameover() {
   background(magenta);
   music.pause();
   
+  if (score > highscore) {
+    highscore = score;
+  }
+  
   // text
   fill(purple);
   textSize(100);
   text("GAMEOVER", 400, 200);
-  
-  if (score > highscore) {
-    highscore = score;
-  }
   
   textSize(50);
   fill(pink);
@@ -29,6 +29,7 @@ void gameover() {
 }
 
 void gameoverClicks() {
+  // click restart or exit
   if (mouseX > 150 && mouseX < 350 && mouseY > 500 && mouseY < 600) {
     mode = INTRO;
   } else if (mouseX > 450 && mouseX < 650 && mouseY > 500 && mouseY < 600) {
