@@ -1,5 +1,4 @@
 void mousePressed() {
-  whoosh.play();
   if (mode == INTRO) {
     introClicks();
   } else if (mode == GAME) {

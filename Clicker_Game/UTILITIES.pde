@@ -43,10 +43,8 @@ void target(float x, float y) {
   fill(white);
   circle(x, y, targetSize);
   if (orcaOn) {
-    rabbitOn = false;
     image(orca, x - targetSize/2, y - targetSize/2, targetSize - 5, targetSize - 5); 
   } else if (rabbitOn) {
-    orcaOn = false;
     image(rabbit, x - targetSize/3, y - targetSize/3, targetSize * 2/3 - 5, targetSize * 2/3 - 5); 
   }
 }

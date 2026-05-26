@@ -51,7 +51,6 @@ Minim minim;
 AudioPlayer success;
 AudioPlayer failure;
 AudioPlayer music;
-AudioPlayer whoosh;
 
 // image variables
 PImage orca;
@@ -73,7 +72,6 @@ void setup() {
   success = minim.loadFile("SUCCESS.wav");
   failure = minim.loadFile("FAILURE.wav");
   music = minim.loadFile("MUSIC.mp3");
-  whoosh = minim.loadFile("WHOOSH.wav");
   
   mode = INTRO;
   

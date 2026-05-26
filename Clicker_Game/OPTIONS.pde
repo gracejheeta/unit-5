@@ -43,9 +43,11 @@ void optionsClicks() {
   // clicking an option
   if ( dist(mouseX, mouseY, 200, 350) < 150 ) {
     orcaOn = !orcaOn;
+    rabbitOn = false;
   }
   if ( dist(mouseX, mouseY, 600, 350) < 150) {
     rabbitOn = !rabbitOn;
+    orcaOn = false;
   }
   
   // clicking done button
