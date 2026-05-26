@@ -10,7 +10,10 @@ final int GAMEOVER = 3;
 
 // entity variables
 float leftx, lefty, leftd, rightx, righty, rightd; // paddles
-float ballx, bally, balld; // ball
+float ballx, bally, balld, vx, vy; // ball
+
+// keyboard variables
+boolean wkey, skey, upkey, downkey;
 
 // Color variables
 color black = #000000;
@@ -35,6 +38,8 @@ void setup() {
   size(800, 800);
   mode = INTRO;
   
+  lemon = createFont("Lemon-Regular.ttf", 100);
+  
   // initialize paddles
   leftx = 0;
   lefty = height/2;
@@ -47,8 +52,11 @@ void setup() {
   ballx = width/2;
   bally = height/2;
   balld = 100;
+  vx = random(-5, 5);
+  vy = random(-5, 5);
   
-  lemon = createFont("Lemon-Regular.ttf", 100);
+  // initialize keyboard variables
+  wkey = skey = upkey = downkey = false;
 }
 
 void draw() {
