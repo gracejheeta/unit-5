@@ -1,3 +1,7 @@
 void intro() {
   
 }
+
+void introClicks() {
+  
+}
