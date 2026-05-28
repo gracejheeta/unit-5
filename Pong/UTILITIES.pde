@@ -22,3 +22,24 @@ void tactileCircle(int x, int y, int d, color normalStroke, color newStroke, col
   fill(Fill);
   circle(x, y, d);
 }
+
+void reset() {
+  // initialize paddles
+  leftx = 0;
+  lefty = height/2;
+  leftd = 200;
+  rightx = width;
+  righty = height/2;
+  rightd = 200;
+  
+  // initialize ball
+  ballx = width/2;
+  bally = height/2;
+  balld = 100;
+  vx = random(-5, 5);
+  vy = random(-5, 5);
+  
+  //reset score
+  leftscore = 0;
+  rightscore = 0;
+}

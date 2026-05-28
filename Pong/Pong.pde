@@ -44,20 +44,7 @@ void setup() {
   
   lemon = createFont("Lemon-Regular.ttf", 100);
   
-  // initialize paddles
-  leftx = 0;
-  lefty = height/2;
-  leftd = 200;
-  rightx = width;
-  righty = height/2;
-  rightd = 200;
-  
-  // initialize ball
-  ballx = width/2;
-  bally = height/2;
-  balld = 100;
-  vx = random(-5, 5);
-  vy = random(-5, 5);
+  reset();
   
   // initialize keyboard variables
   wkey = skey = upkey = downkey = false;

@@ -1,9 +1,10 @@
 void game() {
   background(darkBlue);
-  strokeWeight(0);
-
+  noStroke();
+ 
   // center line
   strokeWeight(5);
+  stroke(0);
   line(width/2, 0, width/2, height);
 
   //paddles
@@ -19,17 +20,17 @@ void game() {
   if (downkey == true) righty += 5;
   
   // limits
-  if (lefty <= 100) {
-    lefty = 100;
+  if (lefty <= 200) {
+    lefty = 200;
   }
-  if (lefty >= height - 100) {
-    lefty = height - 100; 
+  if (lefty >= height - 200) {
+    lefty = height - 200; 
   }
-  if (righty <= 100) {
-    righty = 100; 
+  if (righty <= 200) {
+    righty = 200; 
   }
-  if (righty >= height - 100) {
-    righty = height - 100; 
+  if (righty >= height - 200) {
+    righty = height - 200; 
   }
 
   // ball
@@ -45,6 +46,13 @@ void game() {
     vy = random(-5, 5);
   }
   
+  if (bally <= 50) {
+    bally = 50; 
+  }
+  if (bally >= 750) {
+    bally = 750; 
+  }
+  
   //scoreboard
   textSize(50);
   fill(pink);
@@ -55,7 +63,7 @@ void game() {
   
   // bouncing off walls
   if (bally <= balld/2 || bally >= height - balld/2) {
-    vy *= -1;
+    vy *= -1.05;
   }
 
   //scoring
