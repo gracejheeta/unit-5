@@ -12,6 +12,9 @@ final int GAMEOVER = 3;
 float leftx, lefty, leftd, rightx, righty, rightd; // paddles
 float ballx, bally, balld, vx, vy; // ball
 
+//scoring
+int leftscore, rightscore, timer;
+
 // keyboard variables
 boolean wkey, skey, upkey, downkey;
 
@@ -35,8 +38,9 @@ color cream = #F5EED2;
 PFont lemon;
 
 void setup() {
-  size(800, 800);
+  size(800, 800, P2D);
   mode = INTRO;
+  textAlign(CENTER, CENTER);
   
   lemon = createFont("Lemon-Regular.ttf", 100);
   
