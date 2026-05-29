@@ -42,4 +42,7 @@ void reset() {
   //reset score
   leftscore = 0;
   rightscore = 0;
+  
+  // initialize keyboard variables
+  wkey = skey = upkey = downkey = false;
 }

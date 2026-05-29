@@ -18,6 +18,8 @@ int leftscore, rightscore, timer;
 // keyboard variables
 boolean wkey, skey, upkey, downkey;
 
+boolean AI;
+
 // Color variables
 color black = #000000;
 color white = #FFFFFF;
@@ -45,9 +47,6 @@ void setup() {
   lemon = createFont("Lemon-Regular.ttf", 100);
   
   reset();
-  
-  // initialize keyboard variables
-  wkey = skey = upkey = downkey = false;
 }
 
 void draw() {

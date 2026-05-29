@@ -16,8 +16,21 @@ void game() {
   // move paddles
   if (wkey == true) lefty -= 5;
   if (skey == true) lefty += 5;
-  if (upkey == true) righty -= 5;
-  if (downkey == true) righty += 5;
+  
+  if (AI == false) {
+    if (upkey == true) righty -= 5;
+    if (downkey == true) righty += 5;
+  } else {
+    
+    if (ballx > width/2) {
+      if (bally > righty + 100) {
+        righty += 5; 
+      }
+      if (bally < righty - 100) {
+        righty -= 5;       
+      }
+    }
+  }
   
   // limits
   if (lefty <= 200) {
