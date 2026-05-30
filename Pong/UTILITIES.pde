@@ -23,6 +23,18 @@ void tactileCircle(int x, int y, int d, color normalStroke, color newStroke, col
   circle(x, y, d);
 }
 
+void ballSpeed() {
+  // choose ball speed
+  vy = random(-5, 5);
+  vx = random(1, 5);
+    
+  float i = random(0, 1);
+  if (i < 0.5) {
+    vx *= -1; 
+  }
+  
+}
+
 void reset() {
   // initialize paddles
   leftx = 0;
@@ -36,8 +48,7 @@ void reset() {
   ballx = width/2;
   bally = height/2;
   balld = 100;
-  vx = random(-5, 5);
-  vy = random(-5, 5);
+  ballSpeed();
   
   //reset score
   leftscore = 0;

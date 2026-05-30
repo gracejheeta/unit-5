@@ -1,14 +1,21 @@
 void game() {
   background(darkBlue);
-  noStroke();
  
   // center line
-  strokeWeight(5);
+  strokeWeight(10);
   stroke(0);
   line(width/2, 0, width/2, height);
+  
+  //pause button
+  strokeWeight(5);
+  tactileCircle(750, 50, 50, black, red, yellow);
+  stroke(black);
+  line(745, 40, 745, 60);
+  line(755, 40, 755, 60);
 
   //paddles
   fill(pink);
+  noStroke();
   circle(leftx, lefty, leftd);
   fill(lightGreen);
   circle(rightx, righty, rightd);
@@ -30,9 +37,10 @@ void game() {
         righty -= 5;       
       }
     }
+    
   }
   
-  // limits
+  // limits on paddles
   if (lefty <= 200) {
     lefty = 200;
   }
@@ -55,10 +63,10 @@ void game() {
     ballx += vx;
     bally += vy;
   } else {
-    vx = random(-5, 5);
-    vy = random(-5, 5);
+    ballSpeed();
   }
   
+  // limits on ball
   if (bally <= 50) {
     bally = 50; 
   }
@@ -86,7 +94,6 @@ void game() {
     bally = height/2;
     timer = 100;
   }
-  
   if (ballx > width) {
     leftscore ++;
     ballx = width/2;
@@ -104,6 +111,7 @@ void game() {
     vy = (bally - righty)/20;
   }
   
+  // end the game
   if (leftscore == 3 || rightscore == 3) {
     mode = GAMEOVER; 
   }
@@ -111,4 +119,7 @@ void game() {
 }
   
 void gameClicks() {
+  if ( dist(mouseX, mouseY, 750, 50) < 25) {
+    mode = PAUSE;
+  }
 }

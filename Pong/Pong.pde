@@ -43,8 +43,10 @@ void setup() {
   size(800, 800, P2D);
   mode = INTRO;
   textAlign(CENTER, CENTER);
+  strokeWeight(10);
   
   lemon = createFont("Lemon-Regular.ttf", 100);
+  textFont(lemon);
   
   reset();
 }
