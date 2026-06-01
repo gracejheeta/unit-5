@@ -1,5 +1,6 @@
 void pause() {
   // play button
+  music.pause();
   tactileCircle(750, 50, 50, black, red, yellow);
   fill(black);
   stroke(black);

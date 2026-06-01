@@ -56,4 +56,7 @@ void reset() {
   
   // initialize keyboard variables
   wkey = skey = upkey = downkey = false;
+  
+  //sound
+  music.rewind();
 }

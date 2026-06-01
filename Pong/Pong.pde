@@ -1,6 +1,19 @@
 // Pong
 // Block 2-4
 
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+// sound variables
+Minim minim;
+AudioPlayer success;
+AudioPlayer failure;
+AudioPlayer music;
+
 // mode variables
 int mode;
 final int INTRO = 0;
@@ -47,6 +60,12 @@ void setup() {
   
   lemon = createFont("Lemon-Regular.ttf", 100);
   textFont(lemon);
+  
+  // minim
+  minim = new Minim(this);
+  success = minim.loadFile("SUCCESS.wav");
+  failure = minim.loadFile("FAILURE.wav");
+  music = minim.loadFile("MUSIC.mp3");
   
   reset();
 }

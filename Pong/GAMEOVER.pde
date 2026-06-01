@@ -1,4 +1,5 @@
 void gameover() {
+  music.pause();
   textSize(100);
  
   // display winner and background

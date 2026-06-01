@@ -1,6 +1,6 @@
 void game() {
   background(darkBlue);
- 
+  
   // center line
   strokeWeight(10);
   stroke(0);
@@ -60,10 +60,13 @@ void game() {
 
   //move ball
   if (timer < 0) {
+    music.play();
     ballx += vx;
     bally += vy;
   } else {
     ballSpeed();
+    music.pause();
+    music.rewind();
   }
   
   // limits on ball
@@ -89,12 +92,16 @@ void game() {
 
   //scoring
   if (ballx < 0) {
+    failure.rewind();
+    failure.play();
     rightscore ++;
     ballx = width/2;
     bally = height/2;
     timer = 100;
   }
   if (ballx > width) {
+    failure.rewind();
+    failure.play();
     leftscore ++;
     ballx = width/2;
     bally = height/2;
@@ -105,10 +112,14 @@ void game() {
   if ( dist(ballx, bally, leftx, lefty) < balld/2 + leftd/2) {
     vx = (ballx - leftx)/20;
     vy = (bally - lefty)/20;
+    success.rewind();
+    success.play();
   }
   if ( dist(ballx, bally, rightx, righty) < balld/2 + rightd/2) {
     vx = (ballx - rightx)/20;
     vy = (bally - righty)/20;
+    success.rewind();
+    success.play();
   }
   
   // end the game
