@@ -1,0 +1,97 @@
+// Grace Jheeta
+// Block 2-4
+// Tuesday June 2, 2026
+
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+// Color variables
+color black = #000000;
+color white = #FFFFFF;
+color red = #FF0900;
+color orange = #FF9900;
+color yellow = #FFF300;
+color lightGreen = #8BFF86;
+color darkGreen = #08B200;
+color cyan = #00FFF9;
+color lightBlue = #4BBBFF;
+color darkBlue = #0017FC;
+color purple = #6900FF;
+color magenta = #D400FF;
+color pink = #FFC4DE;
+color cream = #F5EED2;
+
+// Font variables
+PFont lemon;
+
+// mode variables
+int mode;
+final int INTRO = 0;
+final int GAME = 1;
+final int PAUSE = 2;
+final int GAMEOVER = 3;
+
+// game variables
+int score, lives;
+
+//entity variables
+float paddleX, paddleY, paddleD; // paddle
+float ballX, ballY, ballD, vx, vy; // ball
+
+//bricks
+int[] brickx;
+int[] bricky;
+int brickd;
+int numBricks;
+
+// keyboard variables
+boolean leftkey, rightkey;
+
+void setup() {
+  size(800, 800, P2D);
+  mode = INTRO;
+  
+  //initialize paddles
+  paddleX = width/2;
+  paddleY = height;
+  paddleD = 100;
+  
+  //initialize balls
+  ballX = width/2;
+  ballY = height/2;
+  ballD = 50;
+  vx = 0;
+  vy = 5;
+  
+  //bricks
+  numBricks = 50;
+  brickd = 50;
+  brickx = new int[numBricks];
+  bricky = new int[numBricks];
+  
+  // initialize game variables
+  score = 0;
+  lives = 3;
+  
+  leftkey = rightkey = false;
+}
+
+void draw() {
+  if (mode == INTRO) {
+    intro();
+  } else if (mode == GAME) {
+    game();
+  } else if (mode == PAUSE) {
+    pause();
+  } else if (mode == GAMEOVER) {
+    gameover();
+  } else {
+    println("Error: Mode = " + mode);
+  }
+  
+  System.out.println("mode: " + mode);
+}
