@@ -36,7 +36,7 @@ final int PAUSE = 2;
 final int GAMEOVER = 3;
 
 // game variables
-int score, lives;
+int score, lives, timer;
 
 //entity variables
 float paddleX, paddleY, paddleD; // paddle
@@ -47,13 +47,19 @@ int[] brickx;
 int[] bricky;
 int brickd;
 int numBricks;
+boolean[] alive;
 
 // keyboard variables
 boolean leftkey, rightkey;
 
 void setup() {
-  size(800, 800, P2D);
+  size(1000, 1000, P2D);
+  textAlign(CENTER, CENTER);
+  strokeWeight(5);
+  lemon = createFont("Lemon-Regular.ttf", 100);
+  
   mode = INTRO;
+  
   
   //initialize paddles
   paddleX = width/2;
@@ -62,20 +68,36 @@ void setup() {
   
   //initialize balls
   ballX = width/2;
-  ballY = height/2;
-  ballD = 50;
+  ballY = 3 * height/4;
+  ballD = 40;
   vx = 0;
   vy = 5;
   
   //bricks
-  numBricks = 50;
+  numBricks = 54;
   brickd = 50;
   brickx = new int[numBricks];
   bricky = new int[numBricks];
+  alive = new boolean[numBricks];
+  
+  int tempx = 100;
+  int tempy = 100;
+  for (int i = 0; i < numBricks; i ++) {
+    brickx[i] = tempx;
+    bricky[i] = tempy;
+    alive[i] = true;
+    tempx += 100;
+
+    if (tempx >= width) {
+      tempy += 100;
+      tempx = 100;
+    }
+  }
   
   // initialize game variables
   score = 0;
   lives = 3;
+  timer = 100;
   
   leftkey = rightkey = false;
 }

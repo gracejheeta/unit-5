@@ -22,3 +22,10 @@ void tactileCircle(int x, int y, int d, color normalStroke, color newStroke, col
   fill(Fill);
   circle(x, y, d);
 }
+
+void resetBall() {
+  ballX = width/2;
+  ballY = 3 * height/4;
+  vx = 0;
+  vy = 5;
+}
