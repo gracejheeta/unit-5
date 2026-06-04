@@ -59,19 +59,11 @@ void setup() {
   lemon = createFont("Lemon-Regular.ttf", 100);
   
   mode = INTRO;
+  leftkey = rightkey = false;
   
-  
-  //initialize paddles
-  paddleX = width/2;
-  paddleY = height;
+  //initialize diameters
+  ballD = 30;
   paddleD = 100;
-  
-  //initialize balls
-  ballX = width/2;
-  ballY = 3 * height/4;
-  ballD = 40;
-  vx = 0;
-  vy = 5;
   
   //bricks
   numBricks = 54;
@@ -85,7 +77,6 @@ void setup() {
   for (int i = 0; i < numBricks; i ++) {
     brickx[i] = tempx;
     bricky[i] = tempy;
-    alive[i] = true;
     tempx += 100;
 
     if (tempx >= width) {
@@ -94,12 +85,7 @@ void setup() {
     }
   }
   
-  // initialize game variables
-  score = 0;
-  lives = 3;
-  timer = 100;
-  
-  leftkey = rightkey = false;
+  reset();
 }
 
 void draw() {

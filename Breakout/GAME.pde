@@ -22,6 +22,8 @@ void game() {
   // move paddle
   if (leftkey == true) paddleX -= 5;
   if (rightkey == true) paddleX += 5;
+  if (paddleX <= paddleD/2) paddleX = paddleD/2;
+  if (paddleX >= width - paddleD/2) paddleX = width - paddleD/2;
 
   //ball
   circle(ballX, ballY, ballD);
@@ -62,12 +64,13 @@ void manageBrick(int i) {
   if ( dist(brickx[i], bricky[i], ballX, ballY) < (brickd/2 + ballD/2) ) {
     vx = (ballX - brickx[i])/10;
     vy = (ballY - bricky[i])/10;
+    score ++;
     alive[i] = false;
   }
   
   // go to gameover
   if (lives == 0) mode = GAMEOVER;
-  if (score == numBricks) mode = GAMEOVER;
+  else if (score == numBricks) mode = GAMEOVER;
   
 }
 

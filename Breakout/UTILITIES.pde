@@ -29,3 +29,21 @@ void resetBall() {
   vx = 0;
   vy = 5;
 }
+
+void reset() {
+  //initialize paddles
+  paddleX = width/2;
+  paddleY = height;
+  
+  //initialize balls
+  resetBall();
+  
+  // initialize game variables
+  score = 0;
+  lives = 3;
+  timer = 100;
+  
+  for (int i = 0; i < numBricks; i ++) {
+    alive[i] = true;
+  }
+}
