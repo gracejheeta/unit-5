@@ -60,12 +60,18 @@ void manageBrick(int i) {
 
   circle(brickx[i], bricky[i], brickd);
 
-  //collisions
+  //collisions with ball and brick
   if ( dist(brickx[i], bricky[i], ballX, ballY) < (brickd/2 + ballD/2) ) {
     vx = (ballX - brickx[i])/10;
     vy = (ballY - bricky[i])/10;
     score ++;
     alive[i] = false;
+  }
+  
+  //making sure ball isn't horizontal forever
+  
+  if (vy > -0.5 && vy < 0.5) {
+    vy *= 5;
   }
   
   // go to gameover
