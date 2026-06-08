@@ -36,7 +36,7 @@ final int PAUSE = 2;
 final int GAMEOVER = 3;
 
 // game variables
-int score, lives, timer;
+int score, lives, timer, targetScore;
 
 //entity variables
 float paddleX, paddleY, paddleD; // paddle
@@ -57,6 +57,7 @@ void setup() {
   textAlign(CENTER, CENTER);
   strokeWeight(5);
   lemon = createFont("Lemon-Regular.ttf", 100);
+  textFont(lemon);
   
   mode = INTRO;
   leftkey = rightkey = false;
@@ -67,6 +68,7 @@ void setup() {
   
   //bricks
   numBricks = 54;
+  targetScore = numBricks;
   brickd = 50;
   brickx = new int[numBricks];
   bricky = new int[numBricks];
