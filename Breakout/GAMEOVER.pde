@@ -5,7 +5,7 @@ void gameover() {
   // display win or loss
   fill(white);
   textSize(100);
-  if (score == numBricks) text("YOU WIN!", width/2, height/2);
+  if (score == targetScore) text("YOU WIN!", width/2, height/2 - 100);
   else {
     text("YOU LOSE!", width/2, height/2 - 100);
     textSize(50);

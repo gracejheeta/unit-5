@@ -3,6 +3,13 @@ void game() {
   strokeWeight(0);
   timer --;
 
+  //pause button
+  strokeWeight(5);
+  tactileCircle(950, 50, 50, black, red, yellow);
+  stroke(black);
+  line(945, 40, 945, 60);
+  line(955, 40, 955, 60);
+  
   // display score and lives
   textFont(lemon);
   textSize(20);
@@ -11,6 +18,7 @@ void game() {
   text("Lives: " + lives, 200, 20);
 
   //bricks
+  strokeWeight(0);
   for (int i = 0; i < numBricks; i ++) {
     if (alive[i]) manageBrick(i);
   }
@@ -22,8 +30,9 @@ void game() {
   // move paddle
   if (leftkey == true) paddleX -= 5;
   if (rightkey == true) paddleX += 5;
-  if (paddleX <= paddleD/2) paddleX = paddleD/2;
-  if (paddleX >= width - paddleD/2) paddleX = width - paddleD/2;
+  //limits
+  if (paddleX <= paddleD/2 + ballD) paddleX = paddleD/2 + ballD;
+  if (paddleX >= width - paddleD/2 - ballD) paddleX = width - paddleD/2 - ballD;
 
   //ball
   circle(ballX, ballY, ballD);
@@ -69,16 +78,18 @@ void manageBrick(int i) {
   }
   
   //making sure ball isn't horizontal forever
-  
   if (vy > -0.5 && vy < 0.5) {
     vy *= 5;
   }
   
   // go to gameover
   if (lives == 0) mode = GAMEOVER;
-  else if (score == numBricks) mode = GAMEOVER;
+  else if (score == targetScore) mode = GAMEOVER;
   
 }
 
 void gameClicks() {
+  if ( dist(mouseX, mouseY, 950, 50) < 25) {
+    mode = PAUSE;
+  }
 }

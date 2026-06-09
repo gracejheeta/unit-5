@@ -102,6 +102,4 @@ void draw() {
   } else {
     println("Error: Mode = " + mode);
   }
-  
-  System.out.println("mode: " + mode);
 }
