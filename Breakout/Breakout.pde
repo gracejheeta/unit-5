@@ -9,13 +9,6 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
-// sound variables
-Minim minim;
-AudioPlayer success;
-AudioPlayer failure;
-AudioPlayer music;
-int musicTimer;
-
 // Color variables
 color black = #000000;
 color white = #FFFFFF;
@@ -61,22 +54,14 @@ boolean leftkey, rightkey;
 
 void setup() {
   size(1000, 1000, P2D);
-  mode = INTRO;
   textAlign(CENTER, CENTER);
   strokeWeight(5);
-  
-  //font
   lemon = createFont("Lemon-Regular.ttf", 100);
   textFont(lemon);
   
+  mode = INTRO;
   leftkey = rightkey = false;
   
-  //minim
-  minim = new Minim(this);
-  success = minim.loadFile("SUCCESS.wav");
-  failure = minim.loadFile("FAILURE.wav");
-  music = minim.loadFile("MUSIC.mp3");
-
   //initialize diameters
   ballD = 30;
   paddleD = 100;
@@ -117,5 +102,6 @@ void draw() {
   } else {
     println("Error: Mode = " + mode);
   }
-  println(musicTimer);
+  
+  System.out.println("mode: " + mode);
 }

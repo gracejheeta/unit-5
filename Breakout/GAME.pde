@@ -1,15 +1,13 @@
 void game() {
   background(cream);
   strokeWeight(0);
-  music.play();
-  musicTimer ++;
   timer --;
-  
-  if (musicTimer == 5640) { 
-    music.rewind();
-    music.play();
-    musicTimer = 0;
-  }
+
+  // display score and lives
+  textSize(20);
+  fill(black);
+  text("Bricks: " + score, 75, 20);
+  text("Lives: " + lives, 200, 20);
 
   //pause button
   strokeWeight(5);
@@ -17,13 +15,6 @@ void game() {
   stroke(black);
   line(945, 40, 945, 60);
   line(955, 40, 955, 60);
-  
-  // display score and lives
-  textFont(lemon);
-  textSize(20);
-  fill(black);
-  text("Bricks: " + score, 75, 20);
-  text("Lives: " + lives, 200, 20);
 
   //bricks
   strokeWeight(0);
@@ -38,7 +29,7 @@ void game() {
   // move paddle
   if (leftkey == true) paddleX -= 5;
   if (rightkey == true) paddleX += 5;
-  //limits
+  //limit
   if (paddleX <= paddleD/2 + ballD) paddleX = paddleD/2 + ballD;
   if (paddleX >= width - paddleD/2 - ballD) paddleX = width - paddleD/2 - ballD;
 
@@ -56,8 +47,6 @@ void game() {
   if ( ballY < ballD/2 ) vy *= -1;
   if ( ballY > height - ballD/2 ) {
     resetBall();
-    failure.rewind();
-    failure.play();
     lives -= 1;
     timer = 100;
   }
@@ -83,13 +72,12 @@ void manageBrick(int i) {
   if ( dist(brickx[i], bricky[i], ballX, ballY) < (brickd/2 + ballD/2) ) {
     vx = (ballX - brickx[i])/10;
     vy = (ballY - bricky[i])/10;
-    success.rewind();
-    success.play();
     score ++;
     alive[i] = false;
   }
   
   //making sure ball isn't horizontal forever
+  
   if (vy > -0.5 && vy < 0.5) {
     vy *= 5;
   }
@@ -101,7 +89,7 @@ void manageBrick(int i) {
 }
 
 void gameClicks() {
-  if ( dist(mouseX, mouseY, 950, 50) < 25) {
+  if ( dist(mouseX, mouseY, 750, 50) < 25) {
     mode = PAUSE;
   }
 }

@@ -43,9 +43,6 @@ void reset() {
   lives = 3;
   timer = 100;
   
-  music.rewind();
-  musicTimer = 0;
-  
   for (int i = 0; i < numBricks; i ++) {
     alive[i] = true;
   }

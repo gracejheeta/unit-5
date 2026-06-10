@@ -1,7 +1,6 @@
 void gameover() {
   background(red);
   strokeWeight(10);
-  music.pause();
   
   // display win or loss
   fill(white);
