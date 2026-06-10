@@ -9,6 +9,13 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
+// sound variables
+Minim minim;
+AudioPlayer success;
+AudioPlayer failure;
+AudioPlayer music;
+int musicTimer;
+
 // Color variables
 color black = #000000;
 color white = #FFFFFF;
@@ -52,16 +59,29 @@ boolean[] alive;
 // keyboard variables
 boolean leftkey, rightkey;
 
+//gif variables
+PImage[] lose;
+int loseNumFrames;
+int loseFrame;
+
 void setup() {
   size(1000, 1000, P2D);
+  mode = INTRO;
   textAlign(CENTER, CENTER);
   strokeWeight(5);
+  
+  //font
   lemon = createFont("Lemon-Regular.ttf", 100);
   textFont(lemon);
   
-  mode = INTRO;
   leftkey = rightkey = false;
   
+  //minim
+  minim = new Minim(this);
+  success = minim.loadFile("SUCCESS.wav");
+  failure = minim.loadFile("FAILURE.wav");
+  music = minim.loadFile("MUSIC.mp3");
+
   //initialize diameters
   ballD = 30;
   paddleD = 100;
@@ -88,6 +108,15 @@ void setup() {
   }
   
   reset();
+  
+  //initialize lose gif
+  loseNumFrames = 11;
+  lose = new PImage[loseNumFrames];
+  
+  for (int i = 0; i < loseNumFrames; i ++) {
+    lose[i] = loadImage("frame_" + i + "_delay-0.1s.gif");
+  }
+  
 }
 
 void draw() {
@@ -102,6 +131,5 @@ void draw() {
   } else {
     println("Error: Mode = " + mode);
   }
-  
-  System.out.println("mode: " + mode);
+  println(musicTimer);
 }

@@ -1,12 +1,18 @@
 void gameover() {
   background(red);
   strokeWeight(10);
+  music.pause();
   
   // display win or loss
   fill(white);
   textSize(100);
   if (score == targetScore) text("YOU WIN!", width/2, height/2 - 100);
   else {
+    //lose gif
+      image(lose[loseFrame], 0, 0, width, height); 
+      loseFrame ++;
+      if (loseFrame == loseNumFrames) loseFrame = 0;
+    
     text("YOU LOSE!", width/2, height/2 - 100);
     textSize(50);
     text("BRICKS: " + score, width/2, height/2);
