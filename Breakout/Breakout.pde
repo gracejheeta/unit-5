@@ -64,6 +64,10 @@ PImage[] lose;
 int loseNumFrames;
 int loseFrame;
 
+PImage[] win;
+int winNumFrames;
+int winFrame;
+
 void setup() {
   size(1000, 1000, P2D);
   mode = INTRO;
@@ -114,7 +118,15 @@ void setup() {
   lose = new PImage[loseNumFrames];
   
   for (int i = 0; i < loseNumFrames; i ++) {
-    lose[i] = loadImage("frame_" + i + "_delay-0.1s.gif");
+    lose[i] = loadImage("Lose gif/frame_" + i + "_delay-0.1s.gif");
+  }
+  
+  //initialize win gif
+  winNumFrames = 15;
+  win = new PImage[winNumFrames];
+  
+  for (int i = 0; i < winNumFrames; i ++) {
+    win[i] = loadImage("Win gif/frame_" + i + "_delay-0.15s.gif");
   }
   
 }
@@ -131,5 +143,4 @@ void draw() {
   } else {
     println("Error: Mode = " + mode);
   }
-  println(musicTimer);
 }

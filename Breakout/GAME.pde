@@ -32,7 +32,7 @@ void game() {
   }
 
   //paddle
-  fill(darkBlue);
+  fill(black);
   circle(paddleX, paddleY, paddleD);
 
   // move paddle

@@ -6,12 +6,19 @@ void gameover() {
   // display win or loss
   fill(white);
   textSize(100);
-  if (score == targetScore) text("YOU WIN!", width/2, height/2 - 100);
-  else {
+  
+  if (score == targetScore) {
+    //win gif
+    image(win[winFrame], 0, 0, width, height);
+    if (frameCount % 5 == 0) winFrame ++;
+    if (winFrame == winNumFrames) winFrame = 0;
+    
+    text("YOU WIN!", width/2, height/2 - 100);
+  } else {
     //lose gif
-      image(lose[loseFrame], 0, 0, width, height); 
-      loseFrame ++;
-      if (loseFrame == loseNumFrames) loseFrame = 0;
+    image(lose[loseFrame], 0, 0, width, height); 
+    if (frameCount % 10 == 0) loseFrame ++;
+    if (loseFrame == loseNumFrames) loseFrame = 0;
     
     text("YOU LOSE!", width/2, height/2 - 100);
     textSize(50);
